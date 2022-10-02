@@ -14,8 +14,6 @@ app.get('/posts', (req, res) => {
 
 app.post('/events', (req, res) => {
   const { type, data } = req.body;
-  console.log('Event type: ', type);
-  console.log('Event data: ', JSON.stringify(data));
   if (type === 'PostCreated') {
     const { id, title } = data;
 
