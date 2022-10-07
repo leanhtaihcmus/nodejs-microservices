@@ -16,3 +16,19 @@ docker exec -it [container id] [cmd eg: sh]
 
 - Print out logs from the given container
 docker logs [container id]
+
+# Kubernetes Terminology
+### Kubernetes Cluster
+A collection of nodes + a master to manage them
+
+### Node
+A virtual machine that will run our containers
+
+### Pod
+More or less a running container. Technically, a pod can run mutiple containers (we won't do this)
+
+### Deployment
+Monitors a set of pods, make sure they are running an restarts them if they crash
+
+### Service
+Provides an easy-to-remember URL to access a running container
