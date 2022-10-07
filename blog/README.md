@@ -32,3 +32,11 @@ Monitors a set of pods, make sure they are running an restarts them if they cras
 
 ### Service
 Provides an easy-to-remember URL to access a running container
+
+## Kubernetes Config Files
+- Tell Kubernetes about the different Deployments, ods, and Services (referred to as 'Object') that we want to create.
+- Written in YAML syntax.
+- Always store these files with our project source code - they are documentation!
+- We can create Objects without config files - do not do this. Config file provide a precise definition of that your cluster is running.
+  - Kubernetes docs will tell you to run direct commands to create objects - only do this for testing purpose
+  - Blogs post will tell you to run direct commands to create objects - close the blog post!
