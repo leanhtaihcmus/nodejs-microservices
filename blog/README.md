@@ -56,7 +56,9 @@ Provides an easy-to-remember URL to access a running container
 
 ### ErrImagePull, ErrImageNeverPull and ImagePullBackoffErrors
 If your pods are showing ErrImagePull, ErrImageNeverPull, or ImagePullBackoffErrors after running kubectl apply, the simplelest solution is to provide an imagePullPolicy to the pod.
+
 First, run ```kubectl delete -f infra/k8s/```
+
 Then, update your pod manifest:
 ```
 spec:
@@ -111,15 +113,24 @@ spec:
     - The exact image we want to use
 
 ### Common Kubectl Commands
-Print out information about all of the running pods ```kubectl get pods```
+Print out information about all of the running pods 
+```
+kubectl get pods
+```
+
 Execute the given command in a running pods ```kubectl exec -it [pod_name] [cmd]```
+
 Print out logs from the given pod ```kubectl logs [pod_name]```
+
 Delete the given pod ```kubectl delete pod [pod_name]```
+
 Tell kubernetes to process the config ```kubectl apply -f [config file name]```
+
 Print out some information about the running pod ```kubectl describe pod [pod_name]```
 
 ### Setup Kubectl alias
 In Terminal, run command ```code ~/.zshrc```
+
 Add a new line bellow existing lines at file .zshrc
 ```
 alias k="kubectl"
