@@ -109,3 +109,11 @@ spec:
   - containers: We can create many containers in a single pod
     - name: Make a container with a name of 'posts
     - The exact image we want to use
+
+### Common Kubectl Commands
+Print out information about all of the running pods ```kubectl get pods```
+Execute the given command in a running pods ```kubectl exec -it [pod_name] [cmd]```
+Print out logs from the given pod ```kubectl logs [pod_name]```
+Delete the given pod ```kubectl delete pod [pod_name]```
+Tell kubernetes to process the config ```kubectl apply -f [config file name]```
+Print out some information about the running pod ```kubectl describe pod [pod_name]```
