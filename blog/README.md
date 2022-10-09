@@ -117,3 +117,13 @@ Print out logs from the given pod ```kubectl logs [pod_name]```
 Delete the given pod ```kubectl delete pod [pod_name]```
 Tell kubernetes to process the config ```kubectl apply -f [config file name]```
 Print out some information about the running pod ```kubectl describe pod [pod_name]```
+
+### Setup Kubectl alias
+In Terminal, run command ```code ~/.zshrc```
+Add a new line bellow existing lines at file .zshrc
+```
+alias k="kubectl"
+```
+Back to Terminal and run ```source ~/.zshrc```
+Quit old Terminal and new one, apply command to test ```k get pods```
+
