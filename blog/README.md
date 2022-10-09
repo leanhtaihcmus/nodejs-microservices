@@ -69,16 +69,19 @@ spec:
 ```
 
 Then, run ```kubectl apply -f infra/k8s/```
+
 This will ensure that Kubernetes will use the image built locally from your image cache instead of attempting to pull from a registry.
 
 ### Minikube Users:
 If you are using a vm driver, you will need to tell Kubernetes to use the Docker daemon running inside of the single node cluster instead of the host.
+
 Run the following command:
 ```
 eval $(minikube docker-env)
 ```
 
 Note - This command will need to be repeated anytime you close and restart the terminal session.
+
 Afterward, you can build your image:
 ```
 docker build -t USERNAME/REPO .
@@ -113,10 +116,7 @@ spec:
     - The exact image we want to use
 
 ### Common Kubectl Commands
-Print out information about all of the running pods 
-```
-kubectl get pods
-```
+Print out information about all of the running pods ```kubectl get pods```
 
 Execute the given command in a running pods ```kubectl exec -it [pod_name] [cmd]```
 
@@ -136,5 +136,16 @@ Add a new line bellow existing lines at file .zshrc
 alias k="kubectl"
 ```
 Back to Terminal and run ```source ~/.zshrc```
+
 Quit old Terminal and new one, apply command to test ```k get pods```
 
+### Common Commands Around Deployment
+```kubectl get deployments``` List all the running deployments
+
+```kubectl describe deployment [depl name]``` Print out details about a specific deployment
+
+```kubectl apply -f [config file name]``` Create a deployment out of a config file
+
+```kubectl delete deloyment [depl_name]``` Delete a deployment
+
+```kubectl rollout restart deployment [depl_name]``` use to update deployment without change any configs
