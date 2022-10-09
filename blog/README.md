@@ -149,3 +149,13 @@ Quit old Terminal and new one, apply command to test ```k get pods```
 ```kubectl delete deloyment [depl_name]``` Delete a deployment
 
 ```kubectl rollout restart deployment [depl_name]``` use to update deployment without change any configs
+
+### Types of Services
+#### Cluster IP
+Sets up an easy -to-remember URL to access a pod. Only exposes pod in the cluster.
+#### Node Port
+Make a pod accessible from outside the cluster. Usually only used for dev purposes
+#### Load Balancer
+Makes a pod accessible from outside the cluster. This is the right way to expose a pod to the outside world
+#### External Name
+Redirects an in-cluster request to a CNAME url...don't worry about this one...
