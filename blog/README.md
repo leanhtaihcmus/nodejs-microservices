@@ -159,3 +159,17 @@ Make a pod accessible from outside the cluster. Usually only used for dev purpos
 Makes a pod accessible from outside the cluster. This is the right way to expose a pod to the outside world
 #### External Name
 Redirects an in-cluster request to a CNAME url...don't worry about this one...
+
+### Load Balancers and Ingress
+#### Load Balancer Service
+Tell Kubernetes to reach out to its provider and provision a load balancer. Gets traffic into a single pod.
+#### Ingress or Ingress Controller
+A pod with a set of routing rules to distribute traffic to other services.
+
+### Ingress Nginx Installation Info
+Install Ingress Nginx at [https://kubernetes.github.io/ingress-nginx/] (not Nginx Ingress, it's totally different and incompatible library for this exercise purpose).
+
+Note - Windows students should be using Docker Desktop with WSL2 and not Minikube. The Minikube instructions provided below are intended for Linux users only.
+
+Install Ingress Nginx tutorial [https://kubernetes.github.io/ingress-nginx/deploy/#quick-start]
+
