@@ -1,2 +1,2 @@
 # nodejs-microservices
-Exersise
+Exercise
