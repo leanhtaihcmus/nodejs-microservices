@@ -190,7 +190,7 @@ If something else is listed for TCP *:http, you'll need to shut that service dow
 annotations:
   ingress.kubernetes.io/ingress.class: nginx
 ```
-also deperacated and replace by the class name at spec:
+also deprecated and replace by the class name at spec:
 ```
 spec:
   ingressClassName: nginx

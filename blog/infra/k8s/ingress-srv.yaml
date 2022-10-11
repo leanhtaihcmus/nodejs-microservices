@@ -8,7 +8,7 @@ spec:
     - host: posts.com
       http:
         paths:
-          - path: /
+          - path: /posts
             pathType: Prefix
             backend:
               service: 
