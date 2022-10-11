@@ -173,3 +173,55 @@ Note - Windows students should be using Docker Desktop with WSL2 and not Minikub
 
 Install Ingress Nginx tutorial [https://kubernetes.github.io/ingress-nginx/deploy/#quick-start]
 
+#### Important Note About Port 80
+Check have any conflicting running at port 80 by command ```sudo lsof -i tcp:80```
+
+If Docker is properly listening on port 80 you should see something very similar:
+```
+COMMAND    PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+com.docke 7203 kayden  143u  IPv6 0xa7203f64e4616007      0t0  TCP *:http (LISTEN)
+```
+If something else is listed for TCP *:http, you'll need to shut that service down.
+
+#### Note for new version of Ingress Nginx
+```apiVersion: networking.k8s.io/v1beta1``` is deprecated
+
+```
+annotations:
+  ingress.kubernetes.io/ingress.class: nginx
+```
+also deperacated and replace by the class name at spec:
+```
+spec:
+  ingressClassName: nginx
+```
+
+Here's basic sample of Ingress Nginx version v1
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-myservicea
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: myservicea.foo.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: myservicea
+            port:
+              number: 80
+```
+
+#### Config Host File Location
+We have to config local hosts file to "know" for example: posts.com is "posts.com of localhost" instead of "real posts.com at internet"
+
+With window path is ```C:\Windows\System32\Drivers\etc\hosts```
+
+With MacOS/ Linux path is ```/etc/hosts```
+
+End of file add new line ```127.0.0.1 posts.com```
