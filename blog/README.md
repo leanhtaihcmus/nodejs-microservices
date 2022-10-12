@@ -225,3 +225,12 @@ With window path is ```C:\Windows\System32\Drivers\etc\hosts```
 With MacOS/ Linux path is ```/etc/hosts```
 
 End of file add new line ```127.0.0.1 posts.com```
+
+## Introducing Skaffold
+Link at [https://skaffold.dev/]
+
+Skaffold handles the workflow for building, pushing and deploying your application, allowing you to focus on what matters most: writing code.
+
+- Automates many tasks in a Kubernetes dev environment.
+- Makes it really easy to update code in a running pod.
+- Makes it really easy to create/ delete all objects tied to a project at once.
