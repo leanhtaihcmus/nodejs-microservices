@@ -6,24 +6,40 @@
 - While locked, no other user can purchase the ticket. After 15 minutes, the ticket should 'unlock'
 - Ticket prices can be edited if they are not locked
 
-# Database
+## Database
 ![Database of ticketing project](images/ticketingdb.jpg)
 
-# Services
+## Services
 Introduce about main services we plan to build in this project!
 
-## auth
+### auth
 Everything related to user as: signup/ signin/ signout
 
-## tickets
+### tickets
 Ticket creation/ editing. Knows whether a ticket can be updated
 
-## orders
+### orders
 Order creation/ editing
 
-## expiration
+### expiration
 Watches for orders to be created, cancels them after 15 minutes
 
-## payments
+### payments
 Handle credit card payments. Cancels orders if payments fails, completes if payment succeeds
 
+## Events
+- user-service
+  - UserCreated
+  - UserUpdated
+- orders-service
+  - OrderCreated
+  - OrderCancelled
+  - OrderExpired
+- ticket-service
+  - TicketCreated
+  - TicketUpdated
+- payments-service
+  - ChargeCreated
+
+## Project Architecture
+![Project architecture](images/project_architecture.jpg)
