@@ -43,3 +43,27 @@ Handle credit card payments. Cancels orders if payments fails, completes if paym
 
 ## Project Architecture
 ![Project architecture](images/project_architecture.jpg)
+
+### Steps to create Nodejs service with typescript
+Install typescript at global
+```
+npm install typescript -g
+```
+
+Install typescript to Node.js project with command
+```
+npm install typescript ts-node-dev express @types/express
+```
+
+Init the tsconfig file in service
+```
+tsc --init
+```
+
+If you did not see your server restart after changing the index.ts file, do the following
+- Open the package.json file in the ‘auth’ directory
+- Find the 'start' script
+Update the start script to the following:
+```
+ts-node-dev --poll src/index.ts
+```
