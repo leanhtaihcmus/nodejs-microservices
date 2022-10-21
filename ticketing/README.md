@@ -67,3 +67,7 @@ Update the start script to the following:
 ```
 ts-node-dev --poll src/index.ts
 ```
+
+### Host Files and Security Warning
+When run ingress services and use to browse at Chrome, you'll receive SSL error at locally because ```Kubernetes ingress controller Fake certificate``` so that time you tap-out to area of error content description and type keyword ```thisisunsafe```, Chrome will be bypass the error and return response.
+
