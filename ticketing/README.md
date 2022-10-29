@@ -103,3 +103,41 @@ Fetching cluster endpoint and auth data.
 kubeconfig entry generated for ticketing-dev.
 ```
 
+#### Update the skaffold config to build and `synchronize` to Google Cloud
+We do some bellow steps to make sync, build, config and deploy to Kubernetes at Google Cloud.
+- Enable Google Cloud Build (It's very quick than your old machine!!!)
+- Update the `skaffold.yaml` file to use Google Cloud Build (instead of your local machine)
+- Setup ingress-nginx on your Google cloud cluster at kubernetes.github.io/ingress-nginx (another ingress `nginx-ingress` is totally other different, we not use it at this example)
+- Update your hosts file again to point to the remote cluster
+- Restart skaffold
+
+We find at the left-side menu of project dashboard and go to Cloud Build and enable it.
+
+After enabled, edit skaffold.yaml from
+```
+build:
+  local:
+    push: false
+```
+
+to new one:
+
+```
+build:
+  local:
+    push: false
+  googleCloudBuild:
+    projectId: <project-id>
+```
+
+Update the artifacts to google cloud build format ```us.gcr.io/<project-id>/<service-name>```. Ex: **us.gcr.io/ticketing-dev-366408/auth**
+
+Also take away the code in skaffold as
+```
+build:
+  # local:
+  #   push: false
+```
+
+After done for skaffold file update, we need to reconfig the image in infra/*-depl.yaml file to also use image from Google cloud
+
