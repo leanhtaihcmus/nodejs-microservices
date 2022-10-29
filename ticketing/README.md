@@ -71,3 +71,35 @@ ts-node-dev --poll src/index.ts
 ### Host Files and Security Warning
 When run ingress services and use to browse at Chrome, you'll receive SSL error at locally because ```Kubernetes ingress controller Fake certificate``` so that time you tap-out to area of error content description and type keyword ```thisisunsafe```, Chrome will be bypass the error and return response.
 
+### Setup Kubernetes using Google Cloud on Docker Desktop
+#### Initial Setup
+Already with an Docker Desktop installed on your machine (Windows, MacOS, Linux, etc)
+
+Create an free (only for testing purpose) on Google Cloud and get $300 free credits at link [https://cloud.google.com/free]
+
+Create a new Google Cloud project called "ticketing-dev" at link [https://console.cloud.google.com/projectcreate]
+
+#### Steps to config Google Cloud Kubernetes context on your machine
+The 1st time, make sure you installed Google Cloud SDK on your machine at link [https://cloud.google.com/sdk/docs/install] (prefer installed python3 previous).
+
+Run this command to make sure gcloud SDK installed successfully ```gcloud```
+
+The 2nd step, we need login to our registered free google cloud account at some previously steps with this command ```gcloud auth login```, and we chooose the right google account and allow to grant fully the request permissions as it required. After done, close the browser tab and back to commandline tool to do next steps.
+
+- We choose option (2) to create a new gcloud configurations if this absolutely new project. In case we need reconfig google because some reasons, we choose the option (1).
+
+- We choose the project ID need to connect too, in this case it 's "ticketing-dev-*"
+
+- We choose the region to manually config with "Y" option, in this case it's (7) because we use `us-central-1c` as regional configure for out project before.
+
+- The final step, we choose the account which will use to control/ grant command for this settings.
+
+After done to init the setting of project by gcloud SDK on your location repository, we go to next steps to connect its context to Docker Desktop to switch or manage kubernetes easy.
+- At the 1st time **if you still not install any google cloud kubectl component**, quit your docker desktop run this command to install it ```gcloud components install kubectl```
+- After finish install or had gcloud kubectl existed on your docker desktop, run this command to get the prooject's kubernetes cluster context arn ```gcloud container clusters get-credentials <cluster-name>```
+- After done check if same bellow output, result is successfully and your docker desktop had its context
+```
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated for ticketing-dev.
+```
+
