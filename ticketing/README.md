@@ -111,8 +111,10 @@ We do some bellow steps to make sync, build, config and deploy to Kubernetes at 
 - Update your hosts file again to point to the remote cluster
 - Restart skaffold
 
+##### Enable Google Build
 We find at the left-side menu of project dashboard and go to Cloud Build and enable it.
 
+##### Update Skaffold to connect to Google Cloud
 After enabled, edit skaffold.yaml from
 ```
 build:
@@ -140,4 +142,13 @@ build:
 ```
 
 After done for skaffold file update, we need to reconfig the image in infra/*-depl.yaml file to also use image from Google cloud
+
+##### Setup ingress-nginx on Google Cloud Cluster
+Open this link [https://kubernetes.github.io/ingress-nginx/deploy/] and find to config guideline of Google Cloud at section #GCE-GKE
+
+At Section #Quick start, copy and run the command as bellow to install kubectl control plane
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/cloud/deploy.yaml
+```
+
 
