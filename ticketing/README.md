@@ -96,7 +96,7 @@ The 2nd step, we need login to our registered free google cloud account at some 
 
 After done to init the setting of project by gcloud SDK on your location repository, we go to next steps to connect its context to Docker Desktop to switch or manage kubernetes easy.
 - At the 1st time **if you still not install any google cloud kubectl component**, quit your docker desktop run this command to install it ```gcloud components install kubectl```
-- After finish install or had gcloud kubectl existed on your docker desktop, run this command to get the prooject's kubernetes cluster context arn ```gcloud container clusters get-credentials <cluster-name>```
+- After finish install or had gcloud kubectl existed on your docker desktop, run this command to get the project's kubernetes cluster context arn ```gcloud container clusters get-credentials <cluster-name>```
 - After done check if same bellow output, result is successfully and your docker desktop had its context
 ```
 Fetching cluster endpoint and auth data.
@@ -151,4 +151,14 @@ At Section #Quick start, copy and run the command as bellow to install kubectl c
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/cloud/deploy.yaml
 ```
 
+##### Update hosts file to connect to cluster remote
+Open Google cloud console of your project and find to choose "Load balancer" inside menu "Network services". Click to default Load balancer default record and copy the IP V4 address.
+
+Open your /etc/hosts file and update IPV4 of domain "ticketing.dev"
+
+##### Run skaffold on our cluster remote
+You need to set the default credential before can use Cloud build, use this command
+```
+gcloud auth application-default login
+```
 
