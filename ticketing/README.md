@@ -162,3 +162,6 @@ You need to set the default credential before can use Cloud build, use this comm
 gcloud auth application-default login
 ```
 
+## Difficulty in Error Handling
+1. We must have a consistently structured response from all servers, no matter what went wrong.
+2. A billion things can go wrong, not just validation of inputs to a request handler. Each of these need to be handled consistently.
