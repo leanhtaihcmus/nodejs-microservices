@@ -164,4 +164,7 @@ gcloud auth application-default login
 
 ## Difficulty in Error Handling
 1. We must have a consistently structured response from all servers, no matter what went wrong.
+- Write an error handling middleware to process errors, give them a consistent structure, and send back to the browser.
+
 2. A billion things can go wrong, not just validation of inputs to a request handler. Each of these need to be handled consistently.
+- Make sure we capture all possible errors using Express's error handling mechanism (call the 'next' function!)
