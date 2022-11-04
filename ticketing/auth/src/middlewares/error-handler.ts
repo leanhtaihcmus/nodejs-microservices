@@ -8,15 +8,19 @@ export const errorHandler = (
   res: Response, 
   next: NextFunction
 ) => {
+  // Follow up status code by https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
   if (err instanceof RequestValidationError) {
-    console.log('handling this error as a request validation error');
+    const formattedErrors = err.errors.map(error => {
+      return { message: error.msg, field: error.param };
+    });
+    return res.status(400).send({ errors: formattedErrors });
   }
 
   if (err instanceof DatabaseConnectionError) {
-    console.log('handling this error as a database connection error');
+    return res.status(500).send({ errors: [{ message: err.reason }] });
   }
 
   res.status(400).send({
-    message: err.message
+    errors: [{ message: 'Something went wrong' }]
   });
 };
