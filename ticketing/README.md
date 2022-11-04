@@ -168,3 +168,24 @@ gcloud auth application-default login
 
 2. A billion things can go wrong, not just validation of inputs to a request handler. Each of these need to be handled consistently.
 - Make sure we capture all possible errors using Express's error handling mechanism (call the 'next' function!)
+
+## Handle async Error throw in Nodejs
+At normal case support by native Nodejs we can use like this code
+```
+app.all('*', async (req, res, next) => {
+  next(new NotFoundError());
+});
+```
+
+To easy to use, we also can install lib called `express-async-errors` from npmjs and use follow the readme
+```
+const express = require('express');
+require('express-async-errors');
+const User = require('./models/user');
+const app = express();
+ 
+app.get('/users', async (req, res) => {
+  const users = await User.findAll();
+  res.send(users);
+});
+```
