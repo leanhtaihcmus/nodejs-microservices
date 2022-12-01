@@ -9,6 +9,9 @@
 ## Database
 ![Database of ticketing project](images/ticketingdb.jpg)
 
+## How to properly use Object.setPrototypeOf()
+
+
 ## Services
 Introduce about main services we plan to build in this project!
 
